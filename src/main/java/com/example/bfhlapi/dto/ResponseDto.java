@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import java.util.List;
 
-// This annotation forces Jackson to serialize keys in your exact desired sequence
 @JsonPropertyOrder({
         "is_success",
         "user_id",
@@ -47,8 +46,10 @@ public class ResponseDto {
     private String concatString;
 
     // Getters and Setters
+
+    @JsonProperty("is_success")
     public boolean isSuccess() { return isSuccess; }
-    public void setSuccess(boolean success) { isSuccess = success; }
+    public void setSuccess(boolean success) { this.isSuccess = success; }
 
     public String getUserId() { return userId; }
     public void setUserId(String userId) { this.userId = userId; }
